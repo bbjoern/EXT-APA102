@@ -1,7 +1,7 @@
 "use strict"
 
 var NodeHelper = require("node_helper")
-var Apa102spi = require("apa102-spi")
+var rpio = require('rpio');
 
 module.exports = NodeHelper.create({
   start: function () {
@@ -15,14 +15,13 @@ module.exports = NodeHelper.create({
         this.initialize(payload)
         break
       case "APA102_COLOR":
-        this.ledProvider.setLedColor(2, 15, 255, 0, 0)
-        this.ledProvider.sendLeds();
+        rpio.init({ mapping: 'gpio', gpiomem: true });
+        rpio.open(5, rpio.OUTPUT, rpio.HIGH);
         break
     }
   },
 
   initialize: async function (config) {
     this.config = config;
-    this.ledProvider = new Apa102spi(12, 100);
   }
 })

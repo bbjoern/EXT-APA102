@@ -32,6 +32,6 @@
   "dependencies": {
     "esbuild": "^0.19.11",
     "glob": "^10.3.10",
-    "apa102-spi": "0.0.6"
+    "rpio": "^2.4.2"
   }
 }
