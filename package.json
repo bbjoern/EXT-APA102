@@ -1,0 +1,37 @@
+{
+  "name": "EXT-APA102",
+  "version": "1.0.1",
+  "rev": "240206",
+  "description": "A controller for led strips with an apa102 interface on MagicMirror.",
+  "main": "EXT-APA102.js",
+  "scripts": {
+    "preinstall": "installer/preinstall.sh",
+    "postinstall": "installer/postinstall.sh -m -b",
+    "update": "installer/update.sh",
+    "reset": "git reset --hard",
+    "clean": "rm -rf node_modules package-lock.json"
+  },
+  "keywords": [
+    "magic mirror",
+    "module",
+    "apa102"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "bbjoern",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://forum.bugsounet.fr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbjoern/EXT-APA102"
+  },
+  "homepage": "https://github.com/bbjoern/EXT-APA102",
+  "dependencies": {
+    "esbuild": "^0.19.11",
+    "glob": "^10.3.10",
+    "apa102-spi": "0.0.6"
+  }
+}
