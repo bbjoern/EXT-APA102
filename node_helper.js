@@ -17,6 +17,7 @@ module.exports = NodeHelper.create({
       case "APA102_COLOR":
         rpio.init({ mapping: 'gpio', gpiomem: true });
         rpio.open(5, rpio.OUTPUT, rpio.HIGH);
+        rpio.write(5, rpio.HIGH);
         break
     }
   },
