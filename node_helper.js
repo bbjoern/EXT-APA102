@@ -34,7 +34,7 @@ module.exports = NodeHelper.create({
         
                 console.log('Create buffer');
                 this._led_length = 12;
-                this._led_bits =  4 + this._led_length * 4 + this._led_length / 2;
+                this._led_bits =  4 + this._led_length * 4 + 4;
                 this._led_buffer = Buffer.alloc(this._led_bits);
                 for (let i = 0; i < this._led_bits; i++) {
                     if (i < (this._led_bits - 4))
@@ -69,6 +69,12 @@ module.exports = NodeHelper.create({
                     if (err) {
                         console.error(err);
                     };
+
+                    apa102.close(err => {
+                        if (err) {
+                            console.error(err);
+                        };
+                    })
                 })
         
             }

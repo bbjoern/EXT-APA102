@@ -21,7 +21,7 @@ Module.register("EXT-APA102", {
                 this.sendSocketNotification("APA102_COLOR", {red: 255, green: 0, blue: 0, brightness: 255});
                 break;
             case "ASSISTANT_STANDBY":
-                this.sendSocketNotification("APA102_COLOR", {red: 0, green: 0, blue: 0, brightness: 0});
+                this.sendSocketNotification("APA102_COLOR", {red: 0, green: 0, blue: 0, brightness: 255});
                 break;
         }
     }
