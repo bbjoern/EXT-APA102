@@ -32,6 +32,7 @@
   "dependencies": {
     "esbuild": "^0.19.11",
     "glob": "^10.3.10",
+    "rpio": "^2.4.2",
     "spi-device": "3.1.2"
   },
   "devDependencies": {

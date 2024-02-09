@@ -1,5 +1,6 @@
 "use strict";
 var NodeHelper = require("node_helper"),
+    rpio = require('rpio'),
     spi = require('spi-device');
 var log = () => { /* do nothing */ };
 module.exports = NodeHelper.create({
@@ -19,6 +20,8 @@ module.exports = NodeHelper.create({
     },
     initialize: async function(e) {
         this.config = e
+        rpio.init({ mapping: 'gpio', gpiomem: true })
+        rpio.open(5, rpio.OUTPUT, rpio.HIGH);
         if (e.debug) log = (...args) => { console.log("[APA102]", ...args) }
     },
     setColor: function(e) {
@@ -29,7 +32,7 @@ module.exports = NodeHelper.create({
                     console.error(err);
                 };
         
-                this.log('Create buffer');
+                console.log('Create buffer');
                 this._led_length = 12;
                 this._led_bits =  4 + this._led_length * 4 + this._led_length / 2;
                 this._led_buffer = Buffer.alloc(this._led_bits);
@@ -40,7 +43,7 @@ module.exports = NodeHelper.create({
                         this._led_buffer[i] = 255;
                 }
               
-                this.log('Fill buffer');
+                console.log('Fill buffer');
                 
                 var red = e.red || Math.floor(Math.random() * (255 - 0 + 1)) + 0;
                 var green = e.green || Math.floor(Math.random() * (255 - 0 + 1)) + 0;
