@@ -47,16 +47,12 @@ module.exports = NodeHelper.create({
                 }
               
                 console.log('[APA102] Fill buffer...');                
-                var red = e.red || Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-                var green = e.green || Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-                var blue = e.blue || Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-                var brightness = e.brightness || 255;              
                 for (let i = 0; i < this.ledLength; i++) {
                     var current_led = 4 + (i * 4);
-                    this.ledBuffer[current_led + 1] = blue;
-                    this.ledBuffer[current_led + 2] = green;
-                    this.ledBuffer[current_led + 3] = red;
-                    this.ledBuffer[current_led + 0] = brightness;
+                    this.ledBuffer[current_led + 1] = e.blue;
+                    this.ledBuffer[current_led + 2] = e.green;
+                    this.ledBuffer[current_led + 3] = e.red;
+                    this.ledBuffer[current_led + 0] = e.brightness;
                 }      
               
                 console.log('[APA102] Transfer message...');   
