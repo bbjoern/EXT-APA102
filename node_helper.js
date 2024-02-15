@@ -18,9 +18,7 @@ module.exports = NodeHelper.create({
                 break;
             case "APA102_CLEAR":
                 console.log("[APA102] Clear color");
-                setTimeout(() => {
-                    this.setColor({red: 0, green: 0, blue: 0, brightness: 255});
-                }, 1000);
+                this.setColor({red: 0, green: 0, blue: 0, brightness: 255});
                 break;
         }
     },
