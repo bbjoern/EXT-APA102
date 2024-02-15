@@ -16,6 +16,12 @@ module.exports = NodeHelper.create({
                 console.log("[APA102] Set color RGB " + i.red + "," + i.green + "," + i.blue);
                 this.setColor(i)
                 break;
+            case "APA102_CLEAR":
+                console.log("[APA102] Clear color");
+                setTimeout(() => {
+                    this.setColor({red: 0, green: 0, blue: 0, brightness: 255});
+                }, 1000);
+                break;
         }
     },
     initialize: async function(e) {
@@ -37,7 +43,7 @@ module.exports = NodeHelper.create({
                 this.ledBuffer = Buffer.alloc(this.ledBits);
                 for (let i = 0; i < this.ledBits; i++) {
                     if (i < (this.ledBits - 4))
-                        this.ledBuffer[i] = 0x00;
+                        this.ledBuffer[i] = 0;
                     else
                         this.ledBuffer[i] = 255;
                 }

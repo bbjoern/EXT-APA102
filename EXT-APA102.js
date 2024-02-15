@@ -18,13 +18,13 @@ Module.register("EXT-APA102", {
                 this.sendSocketNotification("APA102_COLOR", {red: 0, green: 0, blue: 255, brightness: 255});
                 break;
             case "ASSISTANT_REPLY":
-                this.sendSocketNotification("APA102_COLOR", {red: 0, green: 0, blue: 0, brightness: 255});
+                this.sendSocketNotification("APA102_COLOR", {red: 0, green: 255, blue: 0, brightness: 255});
                 break;
             case "ASSISTANT_ERROR":
                 this.sendSocketNotification("APA102_COLOR", {red: 255, green: 0, blue: 0, brightness: 255});
                 break;
             case "ASSISTANT_STANDBY":
-                this.sendSocketNotification("APA102_COLOR", {red: 0, green: 0, blue: 0, brightness: 255});
+                this.sendSocketNotification("APA102_CLEAR");
                 break;
         }
     }
