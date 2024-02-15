@@ -66,7 +66,7 @@ module.exports = NodeHelper.create({
                   byteLength: this.ledBits,
                   sendBuffer: this.ledBuffer,
                   receiveBuffer: Buffer.alloc(this.ledBits),
-                  speedHz: 20000
+                  speedHz: 2000
                 }];              
                 apa102.transfer(message, (err, result) => {
                     if (err) {
